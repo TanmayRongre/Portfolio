@@ -204,7 +204,7 @@ button.hire-button:hover {
 }
 
 .dimmed-text {
-    color: #2e2a27;
+    color: var(--web-color);
 }
 
 .full-stop {

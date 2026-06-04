@@ -30,6 +30,7 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 24px; 
+    padding: 0 1rem;
 }
 
 .navbar {
@@ -40,7 +41,8 @@ body {
     justify-content: space-between;
     padding: 0.6rem 0.8rem 0.6rem 2.5rem; 
     gap: 2rem;
-    max-width: 90%;
+    max-width: 1250px;
+    width: 100%;
     box-shadow: var(--shadow-color);
 }
 
@@ -78,6 +80,7 @@ button.hire-button {
     font-size: 0.9rem;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
+    flex-shrink: 0;
 }
 
 button.hire-button:hover {
@@ -86,7 +89,6 @@ button.hire-button:hover {
 }
  
 .hero-section {
-    margin-left: 2.5rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -194,15 +196,15 @@ button.hire-button:hover {
 }
 
 .main-title {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 7vw, 5rem);
     font-weight: 800;
-    line-height: 0.9;
+    line-height: 1;
     letter-spacing: -0.02em;
     word-wrap: break-word;
 }
 
 .dimmed-text {
-    color: var(--web-color);
+    color: #2e2a27;
 }
 
 .full-stop {
@@ -213,7 +215,7 @@ button.hire-button:hover {
     color: #9c9490;
     font-size: 1.1rem;
     line-height: 1.6;
-    max-width: 100%;
+    max-width: 540px;
     margin-top: 1.5rem;
 }
 
@@ -234,15 +236,13 @@ button.hire-button:hover {
 }
 
 .metric-item .label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #6e6661;
     letter-spacing: 0.05em;
     margin-top: 0.5rem;
 }
 
-
 .about-section {
-    margin-left: 5rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -252,11 +252,18 @@ button.hire-button:hover {
     border-top: 1px solid #1c1918;
 }
 
-.about-layout {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 6rem;
+.about-layout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
     max-width: 1250px;
+    width: 100%;
+}
+
+.about-top-row {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 6rem;
     width: 100%;
     align-items: start;
 }
@@ -271,7 +278,6 @@ button.hire-button:hover {
 }
 
 .about-content {
-    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -295,7 +301,6 @@ button.hire-button:hover {
 }
 
 .about-certificates {
-    margin-top: 3.5rem;
     width: 100%;
 }
 
@@ -430,12 +435,44 @@ a.verify-btn:hover {
     color: white;
 }
 
+/* RESPONSIVE BREAKPOINTS FOR MOBILE PROTECTION */
+@media (max-width: 968px) {
+    .navbar {
+        padding: 0.6rem 1rem;
+    }
+    .nav-links {
+        display: none; /* Safely hides standard inline nav links on tablets/phones */
+    }
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .hero-content {
+        gap: 2.5rem;
+    }
+    .metrics-grid {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .about-top-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-headline h2 {
+        font-size: 3rem;
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
+    .hero-section, .about-section {
+        padding: 4rem 1.5rem;
+    }
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 1.5rem;
     }
-    
     .cert-card,
     .horizontal-1,
     .horizontal-2,
@@ -444,13 +481,31 @@ a.verify-btn:hover {
         grid-column: auto;
         grid-row: auto;
     }
-
     .horizontal-1 .cert-image-wrapper,
     .horizontal-2 .cert-image-wrapper,
     .vertical-tall .cert-image-wrapper {
         width: 100%;
-        height: 160px;
+        height: 180px;
         border-right: none;
         border-bottom: 1px solid #2e2a27;
+    }
+    .vertical-tall .cert-meta {
+        align-items: center;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-card {
+        width: 100%;
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+    .profile-image img {
+        width: 160px;
+        height: 160px;
+    }
+    .metric-item .number {
+        font-size: 2.8rem;
     }
 }

@@ -5,19 +5,22 @@
     --shadow-color: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
+html,
+body {
     scroll-behavior: smooth !important;
-    scroll-padding-top: 140px; 
+    scroll-padding-top: 140px;
     width: 100%;
     max-width: 100vw;
-    overflow-x: clip;  
-    background: var(--bg); 
+    overflow-x: clip;
+    background: var(--bg);
     color: white;
 }
 
@@ -25,45 +28,53 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
-.nav-container {        /* Navbar cha parent container */
+
+.nav-container {
+    /* Navbar cha parent container */
     position: fixed;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 24px; 
+    margin-top: 24px;
     padding: 0 1rem;
-    z-index: 1000; /* Adds stacking context to ensure container stays above grid content */
+    z-index: 1000;
+    /* Adds stacking context to ensure container stays above grid content */
 }
 
-.navbar {           /* Navbar cha main container */
+.navbar {
+    /* Navbar cha main container */
     background: rgba(28, 25, 24, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem 0.8rem 0.6rem 2.5rem; 
+    padding: 0.6rem 0.8rem 0.6rem 2.5rem;
     gap: 2rem;
     width: 90%;
     box-shadow: var(--shadow-color);
 }
 
-.nav-links {        /* Navbar cha links cha container */
+.nav-links {
+    /* Navbar cha links cha container */
     display: flex;
     gap: 1.5rem;
-    list-style: none;           /*Remove bullet point*/
+    list-style: none;
+    /*Remove bullet point*/
     margin: 0;
     padding: 0;
 }
 
-.nav-icon {     /*Navbar che icon hide*/
+.nav-icon {
+    /*Navbar che icon hide*/
     display: none;
 }
 
-.nav-links a {      /* Navbar cha links cha style */
+.nav-links a {
+    /* Navbar cha links cha style */
     color: #e0e0e0;
     text-decoration: none;
     font-size: 0.95rem;
@@ -73,12 +84,14 @@ body {
     align-items: center;
 }
 
-.nav-links a:hover {        /* Navbar cha links hover effect */
+.nav-links a:hover {
+    /* Navbar cha links hover effect */
     color: var(--web-color);
     transform: translateY(-1px);
 }
 
-button.hire-button {        /* Navbar cha "Hire Me" button cha style */
+button.hire-button {
+    /* Navbar cha "Hire Me" button cha style */
     font-family: 'Poppins', sans-serif;
     border: none;
     padding: 0.6rem 1.4rem;
@@ -87,7 +100,8 @@ button.hire-button {        /* Navbar cha "Hire Me" button cha style */
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.9rem;
-    cursor: pointer;                      /* <--  Change cursor when hovering*/
+    cursor: pointer;
+    /* <--  Change cursor when hovering*/
     transition: transform 0.2s ease, background-color 0.2s ease;
     white-space: nowrap;
 }
@@ -102,16 +116,16 @@ button.hire-button:hover {
     max-width: 1250px;
     width: 100%;
     margin: 0 auto;
-    padding: 140px 2rem 4rem 2rem; 
+    padding: 140px 2rem 4rem 2rem;
     gap: 4rem;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
 .left-sidebar {
     width: 380px;
     flex-shrink: 0;
     position: sticky;
-    top: 120px; 
+    top: 120px;
     z-index: 10;
 }
 
@@ -119,18 +133,20 @@ button.hire-button:hover {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 8rem; 
-    min-width: 0; 
+    gap: 8rem;
+    min-width: 0;
 }
 
-.hero-section {     /* Purna head section cha css*/
+.hero-section {
+    /* Purna head section cha css*/
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.name-card {                    /* Name Card */
+.name-card {
+    /* Name Card */
     background: var(--off-white);
     border: 2px white solid;
     color: var(--bg);
@@ -141,25 +157,28 @@ button.hire-button:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    min-height: 550px; 
+    min-height: 550px;
     box-shadow: var(--shadow-color);
 }
 
-.profile-image {            /*Image cha div*/
+.profile-image {
+    /*Image cha div*/
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.profile-image img {        /*Image*/
+.profile-image img {
+    /*Image*/
     width: 250px;
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
 }
 
-.profile-info {             /*Name ani description cha div*/
+.profile-info {
+    /*Name ani description cha div*/
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -168,14 +187,16 @@ button.hire-button:hover {
     margin: 1.5rem 0;
 }
 
-.profile-info h1 {       /*Name*/
+.profile-info h1 {
+    /*Name*/
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
 }
 
-.profile-info p {     /*Description*/ 
+.profile-info p {
+    /*Description*/
     font-weight: 500;
     font-size: 0.95rem;
     color: #4a4542;
@@ -183,7 +204,8 @@ button.hire-button:hover {
     line-height: 1.5;
 }
 
-.social-links {         /* Social media icons cha div */
+.social-links {
+    /* Social media icons cha div */
     display: flex;
     gap: 1.25rem;
     justify-content: center;
@@ -191,30 +213,35 @@ button.hire-button:hover {
     width: 100%;
 }
 
-.social-icon {          /* Social media icon parent */
+.social-icon {
+    /* Social media icon parent */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.social-img {           /* Social media 1 by 1 image */
+.social-img {
+    /* Social media 1 by 1 image */
     height: 28px;
     width: 28px;
     object-fit: contain;
     transition: transform 0.2s ease;
 }
 
-.social-img:hover {     /* Social media icon hover effect */
+.social-img:hover {
+    /* Social media icon hover effect */
     transform: scale(1.1);
 }
 
-.hero-content {         /* Name card cha right side cha content */
+.hero-content {
+    /* Name card cha right side cha content */
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
 }
 
-.main-title {           /* Main headline */
+.main-title {
+    /* Main headline */
     font-size: clamp(2.5rem, 7vw, 5rem);
     font-weight: 800;
     line-height: 1;
@@ -222,15 +249,18 @@ button.hire-button:hover {
     word-wrap: break-word;
 }
 
-.dimmed-text {          /*Span "MERN", "ME" sathi */
+.dimmed-text {
+    /*Span "MERN", "ME" sathi */
     color: var(--web-color);
 }
 
-.full-stop {            /*Span "." sathi */
+.full-stop {
+    /*Span "." sathi */
     color: var(--web-color);
 }
 
-.hero-description {     /* Hero section cha description */
+.hero-description {
+    /* Hero section cha description */
     color: #9c9490;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -238,52 +268,61 @@ button.hire-button:hover {
     margin-top: 1.5rem;
 }
 
-.metrics-grid {         /* Hero section cha 3 metrics cha layout */
+.metrics-grid {
+    /* Hero section cha 3 metrics cha layout */
     display: flex;
     gap: 4rem;
 }
 
-.metric-item {          /* Ek metric item cha parent */
+.metric-item {
+    /* Ek metric item cha parent */
     display: flex;
     flex-direction: column;
 }
 
-.metric-item .number {  /* Metric number */
+.metric-item .number {
+    /* Metric number */
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
 }
 
-.metric-item .label {   /* Metric label */
+.metric-item .label {
+    /* Metric label */
     font-size: 0.8rem;
     color: #6e6661;
     letter-spacing: 0.05em;
     margin-top: 0.5rem;
 }
 
-.about-section {        /* About section cha parent */
+.about-section {
+    /* About section cha parent */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.about-layout-container {  /* About section cha layout parent */
-    display: flex; 
+.about-layout-container {
+    /* About section cha layout parent */
+    display: flex;
     flex-direction: column;
     gap: 5rem;
     width: 100%;
 }
 
-.about-top-row {        /* About section cha top row cha layout */
+.about-top-row {
+    /* About section cha top row cha layout */
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1.1fr;
+    column-gap: 4rem;
+    row-gap: 2.5rem;
     width: 100%;
     align-items: start;
 }
 
-.about-headline h2 {       /* About section cha headline */
+.about-headline h2 {
+    /* About section cha headline */
     font-size: 4rem;
     font-weight: 800;
     line-height: 0.9;
@@ -291,14 +330,9 @@ button.hire-button:hover {
     margin: 0;
 }
 
-.about-content {        /* About section cha headline cha right side cha content */
-    display: flex;  
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 650px;
-}
 
-.about-lead {           /* About right bold text*/
+.about-lead {
+    /* About right bold text*/
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.4;
@@ -306,7 +340,29 @@ button.hire-button:hover {
     margin: 0;
 }
 
-.about-text {       /* About right normal text */
+p.about-lead {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+
+.about-headline {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.about-grey-text {
+    grid-column: 1 / 3; /* This tells it to span across BOTH column 1 and column 2 */
+    grid-row: 2 / 3;    /* Keeps it on the second row */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;    /* Removes the 650px limit so it can fill the whole area */
+}
+
+.about-text {
+    /* About right normal text */
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.6;
@@ -314,11 +370,13 @@ button.hire-button:hover {
     margin: 0;
 }
 
-.about-certificates {       /* About section cha certificates cha parent */
+.about-certificates {
+    /* About section cha certificates cha parent */
     width: 100%;
 }
 
-.about-certificates h3 {        /* About section cha certificates cha headline */
+.about-certificates h3 {
+    /* About section cha certificates cha headline */
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--web-color);
@@ -326,7 +384,8 @@ button.hire-button:hover {
     margin: 0 0 1.5rem 0;
 }
 
-.certs-asym-grid {      /* About section cha certificates cha layout */
+.certs-asym-grid {
+    /* About section cha certificates cha layout */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 140px 140px;
@@ -334,7 +393,8 @@ button.hire-button:hover {
     width: 100%;
 }
 
-.cert-card {        /* Ek certificate card cha parent */
+.cert-card {
+    /* Ek certificate card cha parent */
     background: #1c1918;
     border: 1px solid #2e2a27;
     border-radius: 16px;
@@ -343,59 +403,69 @@ button.hire-button:hover {
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.cert-card:hover {      /* Certificate card hover effect */
+.cert-card:hover {
+    /* Certificate card hover effect */
     transform: translateY(-4px);
     border-color: #4a4542;
 }
 
-.horizontal-1 {         /* Certificate card 1 cha layout */
+.horizontal-1 {
+    /* Certificate card 1 cha layout */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     flex-direction: row;
 }
 
-.horizontal-2 {         /* Certificate card 2 cha layout */
+.horizontal-2 {
+    /* Certificate card 2 cha layout */
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     flex-direction: row;
 }
 
-.vertical-tall {        /* Certificate card 3 cha layout */
+.vertical-tall {
+    /* Certificate card 3 cha layout */
     grid-column: 2 / 3;
     grid-row: 1 / 3;
     flex-direction: column;
 }
 
 .horizontal-1 .cert-image-wrapper,
-.horizontal-2 .cert-image-wrapper { /* Certificate card 1 and 2 cha image wrapper cha style */
+.horizontal-2 .cert-image-wrapper {
+    /* Certificate card 1 and 2 cha image wrapper cha style */
     width: 180px;
     height: 100%;
     border-right: 1px solid #2e2a27;
     border-bottom: none;
 }
 
-.vertical-tall .cert-image-wrapper {        /* Certificate card 3 cha image wrapper cha style */
+.vertical-tall .cert-image-wrapper {
+    /* Certificate card 3 cha image wrapper cha style */
     width: 100%;
     height: 180px;
     border-bottom: 1px solid #2e2a27;
 }
 
-.cert-image-wrapper {       /* Certificate card cha image wrapper cha common style */
+.cert-image-wrapper {
+    /* Certificate card cha image wrapper cha common style */
     background: #151312;
 }
 
-.cert-display-img {     /* Certificate card cha image cha style */
+.cert-display-img {
+    /* Certificate card cha image cha style */
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.cert-card:hover .cert-display-img {        /* Certificate card hover effect on image */
+.cert-card:hover .cert-display-img {
+    /* Certificate card hover effect on image */
     transform: scale(1.03);
 }
 
-.cert-meta {     /* Certificate card cha info style */
+.cert-meta {
+    /* Certificate card cha info style */
     padding: 1.25rem;
     display: flex;
     justify-content: space-between;
@@ -404,30 +474,35 @@ button.hire-button:hover {
     flex-grow: 1;
 }
 
-.vertical-tall .cert-meta {     /* Certificate card 3 cha info style */
+.vertical-tall .cert-meta {
+    /* Certificate card 3 cha info style */
     align-items: flex-end;
     margin-top: auto;
 }
 
-.cert-details {     /* Certificate card cha text part cha style */
+.cert-details {
+    /* Certificate card cha text part cha style */
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-.cert-name {        /* Certificate name cha style */
+.cert-name {
+    /* Certificate name cha style */
     font-size: 0.95rem;
     font-weight: 600;
     color: #fff6ee;
     line-height: 1.3;
 }
 
-.cert-sub {     /* Certificate subtext cha style */
+.cert-sub {
+    /* Certificate subtext cha style */
     font-size: 0.8rem;
     color: #9c9490;
 }
 
-a.verify-btn {      /* Certificate card cha "Verify" button cha style */
+a.verify-btn {
+    /* Certificate card cha "Verify" button cha style */
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     font-size: 0.8rem;
@@ -441,30 +516,34 @@ a.verify-btn {      /* Certificate card cha "Verify" button cha style */
     flex-shrink: 0;
 }
 
-a.verify-btn:hover {    /* "Verify" button hover effect */
+a.verify-btn:hover {
+    /* "Verify" button hover effect */
     background: var(--web-color);
     border-color: var(--web-color);
     color: white;
 }
 
-.services-section {     /* Services section cha parent */
+.services-section {
+    /* Services section cha parent */
     width: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
-.outer-border {        /* Services section cha outer border */
+.outer-border {
+    /* Services section cha outer border */
     border: 1px solid #2e2a27;
-    padding: 2px; 
+    padding: 2px;
     border-radius: 32px;
     box-shadow: var(--shadow-color);
     padding: 12px;
 }
 
-.services-container {       /* Services section cha main container */  
+.services-container {
+    /* Services section cha main container */
     width: 100%;
-    background: #1c1918; 
+    background: #1c1918;
     border: 1px solid #2e2a27;
     border-radius: 30px;
     padding: 3rem 3rem;
@@ -473,18 +552,21 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
     align-items: center;
 }
 
-.services-header {      /* Services section cha header cha parent */
+.services-header {
+    /* Services section cha header cha parent */
     text-align: center;
 }
 
-.services-sub {     /* Services section cha header cha subtext */
+.services-sub {
+    /* Services section cha header cha subtext */
     font-size: 0.85rem;
-    font-family: monospace;   
+    font-family: monospace;
     color: #6e6661;
     letter-spacing: 0.05em;
 }
 
-.services-title {           /* Services section cha header cha main title */
+.services-title {
+    /* Services section cha header cha main title */
     color: var(--web-color);
     font-size: 3rem;
     font-weight: 800;
@@ -492,14 +574,16 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
     margin: 0.5rem 0 0 0;
 }
 
-.services-grid {            /* Services section cha 3 service items cha layout */   
+.services-grid {
+    /* Services section cha 3 service items cha layout */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     width: 100%;
 }
 
-.service-item {         /* Ek service item cha parent */
+.service-item {
+    /* Ek service item cha parent */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -507,7 +591,8 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
     padding: 1rem;
 }
 
-.service-icon-wrapper {         /* Service item cha icon wrapper cha style */
+.service-icon-wrapper {
+    /* Service item cha icon wrapper cha style */
     margin-bottom: 1.5rem;
     height: 45px;
     width: 45px;
@@ -517,20 +602,23 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 }
 
 
-.service-icon {         /* Service item cha icon cha style */
+.service-icon {
+    /* Service item cha icon cha style */
     height: 40px;
     width: auto;
     object-fit: contain;
 }
 
-.service-item h3 {          /* Service item cha title cha style */
+.service-item h3 {
+    /* Service item cha title cha style */
     font-size: 1.25rem;
     font-weight: 600;
     color: #fff6ee;
     margin: 0 0 1rem 0;
 }
 
-.service-item p {           /* Service item cha description cha style */
+.service-item p {
+    /* Service item cha description cha style */
     font-size: 0.95rem;
     line-height: 1.6;
     color: #9c9490;
@@ -646,51 +734,61 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 @media (max-width: 968px) {
     .navbar {
         padding: 0.6rem 1rem;
-        gap: 1rem; /* ADD THIS: Reduces the huge gap between icons and the button */
-        width: 95%; /* ADD THIS: Gives the navbar a tiny bit more breathing room on mobile */
+        gap: 1rem;
+        /* ADD THIS: Reduces the huge gap between icons and the button */
+        width: 95%;
+        /* ADD THIS: Gives the navbar a tiny bit more breathing room on mobile */
     }
-    
+
     .nav-links {
-        display: flex; 
-        gap: 1rem; 
-        flex-wrap: nowrap; /* CHANGE THIS: Forces icons to stay on a single line */
+        display: flex;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        /* CHANGE THIS: Forces icons to stay on a single line */
         justify-content: center;
-        align-items: center; /* ADD THIS: Keeps icons vertically centered */
+        align-items: center;
+        /* ADD THIS: Keeps icons vertically centered */
     }
 
     .main-container {
-        flex-direction: column; 
+        flex-direction: column;
         padding-top: 100px;
         align-items: center;
     }
-    
+
     .left-sidebar {
-        position: relative; 
+        position: relative;
         top: 0;
         width: 100%;
         max-width: 400px;
     }
-    
-    .right-content { 
-        gap: 5rem; 
+
+    .right-content {
+        gap: 5rem;
     }
 
     .metrics-grid {
         gap: 2rem;
         flex-wrap: wrap;
     }
+
     .about-top-row {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    .about-headline h2 {
-        font-size: 3rem;
-        width: 100%;
+
+    .about-headline,
+    p.about-lead,
+    .about-grey-text {
+        grid-column: auto;
+        grid-row: auto;
     }
+
     .services-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 3.5rem;
     }
+
     .services-container {
         padding: 4rem 2rem;
     }
@@ -700,7 +798,7 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
     .nav-text {
         display: none;
     }
-    
+
     .nav-icon {
         display: flex;
         align-items: center;
@@ -709,9 +807,9 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 
     /* Increase gap and add padding for easier tapping on mobile */
     .nav-links {
-        gap: 1.5rem; 
+        gap: 1.5rem;
     }
-    
+
     .nav-links a {
         padding: 0.4rem;
     }
@@ -721,11 +819,13 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
     }
+
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 1.5rem;
     }
+
     .cert-card,
     .horizontal-1,
     .horizontal-2,
@@ -734,6 +834,7 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
         grid-column: auto;
         grid-row: auto;
     }
+
     .horizontal-1 .cert-image-wrapper,
     .horizontal-2 .cert-image-wrapper,
     .vertical-tall .cert-image-wrapper {
@@ -742,15 +843,18 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
         border-right: none;
         border-bottom: 1px solid #2e2a27;
     }
+
     .vertical-tall .cert-meta {
         align-items: center;
         margin-top: 0;
     }
+
     .services-title {
         font-size: 2.5rem;
     }
-    .contact-title { 
-        font-size: 2.5rem; 
+
+    .contact-title {
+        font-size: 2.5rem;
     }
 }
 
@@ -760,16 +864,20 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
         min-height: auto;
         padding: 2rem 1.5rem;
     }
+
     .profile-image img {
         width: 160px;
         height: 160px;
     }
+
     .metric-item .number {
         font-size: 2.8rem;
     }
-    .main-title { 
-        font-size: 2.5rem; 
+
+    .main-title {
+        font-size: 2.5rem;
     }
+
     .contact-title {
         font-size: 4rem;
     }

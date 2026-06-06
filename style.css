@@ -59,6 +59,10 @@ body {
     padding: 0;
 }
 
+.nav-icon {     /*Navbar che icon hide*/
+    display: none;
+}
+
 .nav-links a {      /* Navbar cha links cha style */
     color: #e0e0e0;
     text-decoration: none;
@@ -85,6 +89,7 @@ button.hire-button {        /* Navbar cha "Hire Me" button cha style */
     font-size: 0.9rem;
     cursor: pointer;                      /* <--  Change cursor when hovering*/
     transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
 }
 
 button.hire-button:hover {
@@ -543,7 +548,6 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 .contact-layout-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 }
 
 .contact-title {
@@ -554,7 +558,7 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 .contact-layout-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
 }
 
@@ -610,7 +614,6 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 
 
 .input-group input:focus,
-.input-group select:focus,
 .input-group textarea:focus {
     border-color: var(--web-color);
 }
@@ -643,9 +646,16 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 @media (max-width: 968px) {
     .navbar {
         padding: 0.6rem 1rem;
+        gap: 1rem; /* ADD THIS: Reduces the huge gap between icons and the button */
+        width: 95%; /* ADD THIS: Gives the navbar a tiny bit more breathing room on mobile */
     }
+    
     .nav-links {
-        display: none; 
+        display: flex; 
+        gap: 1rem; 
+        flex-wrap: nowrap; /* CHANGE THIS: Forces icons to stay on a single line */
+        justify-content: center;
+        align-items: center; /* ADD THIS: Keeps icons vertically centered */
     }
 
     .main-container {
@@ -661,7 +671,9 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
         max-width: 400px;
     }
     
-    .right-content { gap: 5rem; }
+    .right-content { 
+        gap: 5rem; 
+    }
 
     .metrics-grid {
         gap: 2rem;
@@ -685,6 +697,30 @@ a.verify-btn:hover {    /* "Verify" button hover effect */
 }
 
 @media (max-width: 768px) {
+    .nav-text {
+        display: none;
+    }
+    
+    .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Increase gap and add padding for easier tapping on mobile */
+    .nav-links {
+        gap: 1.5rem; 
+    }
+    
+    .nav-links a {
+        padding: 0.4rem;
+    }
+
+    /* Keep the Hire button a reasonable size next to icons */
+    button.hire-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;

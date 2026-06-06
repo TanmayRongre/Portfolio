@@ -1,10 +1,12 @@
-:root {
+/* Main variables chi definition */
+:root {             
     --bg: #151312;
-    --web-color: #AE2802;
+    --web-color: #FF4A1C;
     --off-white: #fff6ee;
     --shadow-color: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
+/* Saglya elements cha reset */
 *,
 *:before,
 *:after {
@@ -13,6 +15,7 @@
     padding: 0;
 }
 
+/* HTML ani Body sathi basic style */
 html,
 body {
     scroll-behavior: smooth !important;
@@ -24,6 +27,7 @@ body {
     color: white;
 }
 
+/* Main body chi style */
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -31,20 +35,19 @@ body {
     align-items: center;
 }
 
+/* Navbar cha parent container */
 .nav-container {
-    /* Navbar cha parent container */
     position: fixed;
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 24px;
     padding: 0 1rem;
-    z-index: 1000;
-    /* Adds stacking context to ensure container stays above grid content */
+    z-index: 1000; /* saglyat vr thevaysathi */
 }
 
+/* Navbar cha main container */
 .navbar {
-    /* Navbar cha main container */
     background: rgba(28, 25, 24, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -58,23 +61,22 @@ body {
     box-shadow: var(--shadow-color);
 }
 
+/* Navbar cha links cha container */
 .nav-links {
-    /* Navbar cha links cha container */
     display: flex;
     gap: 1.5rem;
-    list-style: none;
-    /*Remove bullet point*/
     margin: 0;
     padding: 0;
+    list-style: none;    /* Remove bullet points */
 }
 
+/* Navbar che icons hide karnyasathi */
 .nav-icon {
-    /*Navbar che icon hide*/
     display: none;
 }
 
+/* Navbar cha links cha style */
 .nav-links a {
-    /* Navbar cha links cha style */
     color: #e0e0e0;
     text-decoration: none;
     font-size: 0.95rem;
@@ -84,14 +86,14 @@ body {
     align-items: center;
 }
 
+/* Navbar cha links hover effect */
 .nav-links a:hover {
-    /* Navbar cha links hover effect */
     color: var(--web-color);
     transform: translateY(-1px);
 }
 
+/* Navbar cha "Hire Me" button cha style */
 button.hire-button {
-    /* Navbar cha "Hire Me" button cha style */
     font-family: 'Poppins', sans-serif;
     border: none;
     padding: 0.6rem 1.4rem;
@@ -100,17 +102,18 @@ button.hire-button {
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.9rem;
-    cursor: pointer;
-    /* <--  Change cursor when hovering*/
-    transition: transform 0.2s ease, background-color 0.2s ease;
     white-space: nowrap;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    cursor: pointer; /* Hover kelyavar cursor change karnyasathi */
 }
 
+/* "Hire Me" button cha hover effect */
 button.hire-button:hover {
     transform: translateY(-1px);
     background: #cd3104;
 }
 
+/* Main content cha container */
 .main-container {
     display: flex;
     max-width: 1250px;
@@ -121,32 +124,17 @@ button.hire-button:hover {
     align-items: flex-start;
 }
 
+/* Left side chi profile sidebar */
 .left-sidebar {
     width: 380px;
     flex-shrink: 0;
-    position: sticky;
+    position: sticky;       /*Stick to left*/
     top: 120px;
-    z-index: 10;
+    z-index: 10;            /* avoid bugs */
 }
 
-.right-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8rem;
-    min-width: 0;
-}
-
-.hero-section {
-    /* Purna head section cha css*/
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Name Card */
 .name-card {
-    /* Name Card */
     background: var(--off-white);
     border: 2px white solid;
     color: var(--bg);
@@ -155,30 +143,30 @@ button.hire-button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     min-height: 550px;
     box-shadow: var(--shadow-color);
 }
 
+/* Image cha div */
 .profile-image {
-    /*Image cha div*/
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
+/* Profile image chi style */
 .profile-image img {
-    /*Image*/
     width: 250px;
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
 }
 
+/* Name ani description cha div */
 .profile-info {
-    /*Name ani description cha div*/
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -187,16 +175,16 @@ button.hire-button:hover {
     margin: 1.5rem 0;
 }
 
+/* Profile cha naav */
 .profile-info h1 {
-    /*Name*/
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
 }
 
+/* Profile description */
 .profile-info p {
-    /*Description*/
     font-weight: 500;
     font-size: 0.95rem;
     color: #4a4542;
@@ -204,8 +192,8 @@ button.hire-button:hover {
     line-height: 1.5;
 }
 
+/* Social media icons cha div */
 .social-links {
-    /* Social media icons cha div */
     display: flex;
     gap: 1.25rem;
     justify-content: center;
@@ -213,35 +201,52 @@ button.hire-button:hover {
     width: 100%;
 }
 
+/* Social media icon parent */
 .social-icon {
-    /* Social media icon parent */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Social media 1 by 1 image */
 .social-img {
-    /* Social media 1 by 1 image */
     height: 28px;
     width: 28px;
     object-fit: contain;
     transition: transform 0.2s ease;
 }
 
+/* Social media icon hover effect */
 .social-img:hover {
-    /* Social media icon hover effect */
     transform: scale(1.1);
 }
 
+/* Right side cha main content */
+.right-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    min-width: 0;
+}
+
+/* Purna head section cha css */
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Name card cha right side cha content */
 .hero-content {
-    /* Name card cha right side cha content */
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
 }
 
+/* Hero section cha main headline */
 .main-title {
-    /* Main headline */
     font-size: clamp(2.5rem, 7vw, 5rem);
     font-weight: 800;
     line-height: 1;
@@ -249,18 +254,13 @@ button.hire-button:hover {
     word-wrap: break-word;
 }
 
+/* Span "MERN", "ME", " . " sathi */
 .dimmed-text {
-    /*Span "MERN", "ME" sathi */
     color: var(--web-color);
 }
 
-.full-stop {
-    /*Span "." sathi */
-    color: var(--web-color);
-}
-
+/* Hero section cha description */
 .hero-description {
-    /* Hero section cha description */
     color: #9c9490;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -268,71 +268,69 @@ button.hire-button:hover {
     margin-top: 1.5rem;
 }
 
-.metrics-grid {
-    /* Hero section cha 3 metrics cha layout */
+/* Hero section cha 3 values cha layout */
+.values-grid {
     display: flex;
     gap: 4rem;
 }
 
-.metric-item {
-    /* Ek metric item cha parent */
+/* Ek value item cha parent */
+.value-item {
     display: flex;
     flex-direction: column;
 }
 
-.metric-item .number {
-    /* Metric number */
+/* value number */
+.value-item .number {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
 }
 
-.metric-item .label {
-    /* Metric label */
+/* value label */
+.value-item .label {
     font-size: 0.8rem;
     color: #6e6661;
     letter-spacing: 0.05em;
     margin-top: 0.5rem;
 }
 
+/* About section cha parent */
 .about-section {
-    /* About section cha parent */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* About section cha layout parent */
 .about-layout-container {
-    /* About section cha layout parent */
     display: flex;
     flex-direction: column;
     gap: 5rem;
     width: 100%;
 }
 
+/* About section cha top row cha layout */
 .about-top-row {
-    /* About section cha top row cha layout */
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     column-gap: 4rem;
     row-gap: 2.5rem;
     width: 100%;
-    align-items: start;
 }
 
+/* About section cha headline */
 .about-headline h2 {
-    /* About section cha headline */
-    font-size: 4rem;
+    font-size: 3.6rem;
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.02em;
     margin: 0;
 }
 
-
+/* About right bold text */
 .about-lead {
-    /* About right bold text*/
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.4;
@@ -340,6 +338,7 @@ button.hire-button:hover {
     margin: 0;
 }
 
+/* About paragraph lead style */
 p.about-lead {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -347,22 +346,24 @@ p.about-lead {
     margin-bottom: 1.5rem;
 }
 
+/* About headline layout */
 .about-headline {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
 }
 
+/* About grey text spanning layout */
 .about-grey-text {
-    grid-column: 1 / 3; /* This tells it to span across BOTH column 1 and column 2 */
-    grid-row: 2 / 3;    /* Keeps it on the second row */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 100%;    /* Removes the 650px limit so it can fill the whole area */
+    grid-column: 1 / 3; 
+    grid-row: 2 / 3;    
+    max-width: 100%;    
 }
 
+/* About right normal text */
 .about-text {
-    /* About right normal text */
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.6;
@@ -370,102 +371,100 @@ p.about-lead {
     margin: 0;
 }
 
+/* About section cha certificates cha parent */
 .about-certificates {
-    /* About section cha certificates cha parent */
     width: 100%;
 }
 
+/* About section cha certificates cha headline */
 .about-certificates h3 {
-    /* About section cha certificates cha headline */
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--web-color);
     letter-spacing: 0.15em;
     margin: 0 0 1.5rem 0;
 }
 
+/* About section cha certificates cha layout */
 .certs-asym-grid {
-    /* About section cha certificates cha layout */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 140px 140px;
     gap: 1.5rem;
     width: 100%;
 }
 
+/* Ek certificate card cha parent */
 .cert-card {
-    /* Ek certificate card cha parent */
     background: #1c1918;
     border: 1px solid #2e2a27;
     border-radius: 16px;
-    overflow: hidden;
     display: flex;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+/* Certificate card hover effect */
 .cert-card:hover {
-    /* Certificate card hover effect */
     transform: translateY(-4px);
     border-color: #4a4542;
 }
 
+/* Certificate card 1 cha layout */
 .horizontal-1 {
-    /* Certificate card 1 cha layout */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     flex-direction: row;
 }
 
+/* Certificate card 2 cha layout */
 .horizontal-2 {
-    /* Certificate card 2 cha layout */
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     flex-direction: row;
 }
 
+/* Certificate card 3 cha layout */
 .vertical-tall {
-    /* Certificate card 3 cha layout */
     grid-column: 2 / 3;
     grid-row: 1 / 3;
     flex-direction: column;
 }
 
+/* Certificate card 1 and 2 cha image wrapper cha style */
 .horizontal-1 .cert-image-wrapper,
 .horizontal-2 .cert-image-wrapper {
-    /* Certificate card 1 and 2 cha image wrapper cha style */
+    
     width: 180px;
     height: 100%;
-    border-right: 1px solid #2e2a27;
     border-bottom: none;
 }
 
+/* Certificate card 3 cha image wrapper cha style */
 .vertical-tall .cert-image-wrapper {
-    /* Certificate card 3 cha image wrapper cha style */
     width: 100%;
     height: 180px;
-    border-bottom: 1px solid #2e2a27;
 }
 
+/* Certificate card cha image wrapper cha common style */
 .cert-image-wrapper {
-    /* Certificate card cha image wrapper cha common style */
     background: #151312;
 }
 
+/* Certificate card cha image cha style */
 .cert-display-img {
-    /* Certificate card cha image cha style */
+    border-radius: 16px;
+
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
+/* Certificate card hover effect on image */
 .cert-card:hover .cert-display-img {
-    /* Certificate card hover effect on image */
     transform: scale(1.03);
 }
 
+/* Certificate card cha info style */
 .cert-meta {
-    /* Certificate card cha info style */
     padding: 1.25rem;
     display: flex;
     justify-content: space-between;
@@ -474,35 +473,34 @@ p.about-lead {
     flex-grow: 1;
 }
 
+/* Certificate card 3 cha info style */
 .vertical-tall .cert-meta {
-    /* Certificate card 3 cha info style */
-    align-items: flex-end;
     margin-top: auto;
 }
 
+/* Certificate card cha text part cha style */
 .cert-details {
-    /* Certificate card cha text part cha style */
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
+/* Certificate name cha style */
 .cert-name {
-    /* Certificate name cha style */
     font-size: 0.95rem;
     font-weight: 600;
     color: #fff6ee;
     line-height: 1.3;
 }
 
+/* Certificate subtext cha style */
 .cert-sub {
-    /* Certificate subtext cha style */
     font-size: 0.8rem;
     color: #9c9490;
 }
 
+/* Certificate card cha "Verify" button cha style */
 a.verify-btn {
-    /* Certificate card cha "Verify" button cha style */
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     font-size: 0.8rem;
@@ -516,23 +514,24 @@ a.verify-btn {
     flex-shrink: 0;
 }
 
+/* "Verify" button hover effect */
 a.verify-btn:hover {
-    /* "Verify" button hover effect */
     background: var(--web-color);
     border-color: var(--web-color);
     color: white;
 }
 
+/* Services section cha parent */
 .services-section {
-    /* Services section cha parent */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Services section cha outer border */
 .outer-border {
-    /* Services section cha outer border */
+    width: 100%;
     border: 1px solid #2e2a27;
     padding: 2px;
     border-radius: 32px;
@@ -540,8 +539,8 @@ a.verify-btn:hover {
     padding: 12px;
 }
 
+/* Services section cha main container */
 .services-container {
-    /* Services section cha main container */
     width: 100%;
     background: #1c1918;
     border: 1px solid #2e2a27;
@@ -552,21 +551,21 @@ a.verify-btn:hover {
     align-items: center;
 }
 
+/* Services section cha header cha parent */
 .services-header {
-    /* Services section cha header cha parent */
     text-align: center;
 }
 
+/* Services section cha header cha subtext */
 .services-sub {
-    /* Services section cha header cha subtext */
     font-size: 0.85rem;
     font-family: monospace;
     color: #6e6661;
     letter-spacing: 0.05em;
 }
 
+/* Services section cha header cha main title */
 .services-title {
-    /* Services section cha header cha main title */
     color: var(--web-color);
     font-size: 3rem;
     font-weight: 800;
@@ -574,16 +573,16 @@ a.verify-btn:hover {
     margin: 0.5rem 0 0 0;
 }
 
+/* Services section cha 3 service items cha layout */
 .services-grid {
-    /* Services section cha 3 service items cha layout */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     width: 100%;
 }
 
+/* Ek service item cha parent */
 .service-item {
-    /* Ek service item cha parent */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -591,8 +590,8 @@ a.verify-btn:hover {
     padding: 1rem;
 }
 
+/* Service item cha icon wrapper cha style */
 .service-icon-wrapper {
-    /* Service item cha icon wrapper cha style */
     margin-bottom: 1.5rem;
     height: 45px;
     width: 45px;
@@ -601,24 +600,22 @@ a.verify-btn:hover {
     justify-content: center;
 }
 
-
+/* Service item cha icon cha style */
 .service-icon {
-    /* Service item cha icon cha style */
     height: 40px;
-    width: auto;
     object-fit: contain;
 }
 
+/* Service item cha title cha style */
 .service-item h3 {
-    /* Service item cha title cha style */
     font-size: 1.25rem;
     font-weight: 600;
     color: #fff6ee;
     margin: 0 0 1rem 0;
 }
 
+/* Service item cha description cha style */
 .service-item p {
-    /* Service item cha description cha style */
     font-size: 0.95rem;
     line-height: 1.6;
     color: #9c9490;
@@ -626,6 +623,7 @@ a.verify-btn:hover {
     max-width: 280px;
 }
 
+/* Contact section cha parent */
 .contact-section {
     width: 100%;
     display: flex;
@@ -633,16 +631,7 @@ a.verify-btn:hover {
     justify-content: center;
 }
 
-.contact-layout-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-title {
-    font-size: 3rem;
-    font-weight: 800;
-}
-
+/* Contact section cha layout container */
 .contact-layout-container {
     display: flex;
     flex-direction: column;
@@ -650,6 +639,7 @@ a.verify-btn:hover {
     width: 100%;
 }
 
+/* Contact section cha main title */
 .contact-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -658,6 +648,7 @@ a.verify-btn:hover {
     flex-direction: column;
 }
 
+/* Form cha wrapper container */
 .form-wrapper {
     display: flex;
     flex-direction: column;
@@ -666,12 +657,14 @@ a.verify-btn:hover {
     max-width: 800px;
 }
 
+/* Form madhil input cha row */
 .input-row {
     display: flex;
     gap: 1.5rem;
     width: 100%;
 }
 
+/* Input fields cha group */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -679,17 +672,19 @@ a.verify-btn:hover {
     width: 100%;
 }
 
+/* Input field cha label */
 .input-group label {
     font-size: 0.85rem;
     color: #9c9490;
     font-weight: 500;
 }
 
+/* Input ani textarea chi style */
 .input-group input,
 .input-group textarea {
     width: 100%;
     background-color: #2e2a27;
-    border: none;
+    border: 2px solid #2e2a27;
     border-radius: 12px;
     padding: 0.8rem 1rem;
     color: #fff6ee;
@@ -699,14 +694,13 @@ a.verify-btn:hover {
     transition: border-color 0.3s ease;
 }
 
-
-
+/* Input focus zalyavar border color change */
 .input-group input:focus,
 .input-group textarea:focus {
     border-color: var(--web-color);
 }
 
-
+/* Submit button chi style */
 .submit-btn {
     background-color: var(--web-color);
     color: white;
@@ -722,40 +716,50 @@ a.verify-btn:hover {
     width: 100%;
 }
 
+/* Submit button cha hover effect */
 .submit-btn:hover {
     background-color: #cd3104;
     transform: translateY(-2px);
 }
 
+
 /*IMPORTANT*/
+/*IMPORTANT*/
+/*IMPORTANT*/
+/*The Bottom Part was made with the help of AI*/
+/*The Bottom Part was made with the help of AI*/
+/*The Bottom Part was made with the help of AI*/
+/*The Bottom Part was made with the help of AI*/
+/*The Bottom Part was made with the help of AI*/
 /*The Bottom Part was made with the help of AI*/
 
 
+/* Tablet and medium screens sathi media query */
 @media (max-width: 968px) {
+    /* Mobile madhe navbar chi style */
     .navbar {
         padding: 0.6rem 1rem;
-        gap: 1rem;
-        /* ADD THIS: Reduces the huge gap between icons and the button */
-        width: 95%;
-        /* ADD THIS: Gives the navbar a tiny bit more breathing room on mobile */
+        gap: 1rem; /* Icons ani button madhla gap kami karnyasathi */
+        width: 95%; /* Mobile var navbar la thodi jast space denyasathi */
     }
 
+    /* Mobile madhe nav links cha style */
     .nav-links {
         display: flex;
         gap: 1rem;
-        flex-wrap: nowrap;
-        /* CHANGE THIS: Forces icons to stay on a single line */
+        flex-wrap: nowrap; /* Icons ekach line var thevnyasathi */
         justify-content: center;
-        align-items: center;
-        /* ADD THIS: Keeps icons vertically centered */
+        align-items: center; /* Icons vertically center madhe thevnyasathi */
     }
 
+    /* Mobile madhe main container chi style */
     .main-container {
         flex-direction: column;
         padding-top: 100px;
         align-items: center;
     }
 
+    /* Mobile madhe sidebar chi style */
     .left-sidebar {
         position: relative;
         top: 0;
@@ -763,20 +767,24 @@ a.verify-btn:hover {
         max-width: 400px;
     }
 
+    /* Mobile madhe right content chi style */
     .right-content {
         gap: 5rem;
     }
 
-    .metrics-grid {
+    /* Mobile madhe values grid chi style */
+    .values-grid {
         gap: 2rem;
         flex-wrap: wrap;
     }
 
+    /* Mobile madhe about top row chi style */
     .about-top-row {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    /* Mobile madhe about text areas chi style */
     .about-headline,
     p.about-lead,
     .about-grey-text {
@@ -784,48 +792,56 @@ a.verify-btn:hover {
         grid-row: auto;
     }
 
+    /* Mobile madhe services grid chi style */
     .services-grid {
         grid-template-columns: 1fr;
         gap: 3.5rem;
     }
 
+    /* Mobile madhe services container chi style */
     .services-container {
         padding: 4rem 2rem;
     }
 }
 
+/* Mobile screens sathi media query */
 @media (max-width: 768px) {
+    /* Nav text hide karnyasathi */
     .nav-text {
         display: none;
     }
 
+    /* Nav icon dakhvnyasathi */
     .nav-icon {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    /* Increase gap and add padding for easier tapping on mobile */
+    /* Mobile var tapping sope vhave mhanun gap ani padding vadhvli */
     .nav-links {
         gap: 1.5rem;
     }
 
+    /* Nav links a chi mobile style */
     .nav-links a {
         padding: 0.4rem;
     }
 
-    /* Keep the Hire button a reasonable size next to icons */
+    /* Hire button mobile var pan changla disava mhanun size adjust keli */
     button.hire-button {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
     }
 
+    /* Certificates grid chi mobile style */
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 1.5rem;
     }
 
+    /* Certificate cards chi mobile arrangement */
     .cert-card,
     .horizontal-1,
     .horizontal-2,
@@ -835,6 +851,7 @@ a.verify-btn:hover {
         grid-row: auto;
     }
 
+    /* Certificate images chi mobile style */
     .horizontal-1 .cert-image-wrapper,
     .horizontal-2 .cert-image-wrapper,
     .vertical-tall .cert-image-wrapper {
@@ -844,40 +861,49 @@ a.verify-btn:hover {
         border-bottom: 1px solid #2e2a27;
     }
 
+    /* Vertical tall certificate chi mobile info style */
     .vertical-tall .cert-meta {
         align-items: center;
         margin-top: 0;
     }
 
+    /* Services title chi mobile size */
     .services-title {
         font-size: 2.5rem;
     }
 
+    /* Contact title chi mobile size */
     .contact-title {
         font-size: 2.5rem;
     }
 }
 
+/* Small mobile screens sathi media query */
 @media (max-width: 480px) {
+    /* Name card chi small screen style */
     .name-card {
         width: 100%;
         min-height: auto;
         padding: 2rem 1.5rem;
     }
 
+    /* Profile image chi small screen size */
     .profile-image img {
         width: 160px;
         height: 160px;
     }
 
-    .metric-item .number {
+    /* value number chi small screen size */
+    .value-item .number {
         font-size: 2.8rem;
     }
 
+    /* Main title chi small screen size */
     .main-title {
         font-size: 2.5rem;
     }
 
+    /* Contact title chi small screen size */
     .contact-title {
         font-size: 4rem;
     }

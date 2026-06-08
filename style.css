@@ -227,7 +227,6 @@ button.hire-button:hover {
     display: flex;
     flex-direction: column;
     gap: 8rem;
-    min-width: 0;
 }
 
 /* Purna head section cha css */

@@ -721,44 +721,28 @@ a.verify-btn:hover {
     transform: translateY(-2px);
 }
 
-
-/*IMPORTANT*/
-/*IMPORTANT*/
-/*IMPORTANT*/
-/*The Bottom Part was made with the help of AI*/
-/*The Bottom Part was made with the help of AI*/
-/*The Bottom Part was made with the help of AI*/
-/*The Bottom Part was made with the help of AI*/
-/*The Bottom Part was made with the help of AI*/
-/*The Bottom Part was made with the help of AI*/
-
-
 /* Tablet and medium screens sathi media query */
 @media (max-width: 968px) {
-    /* Mobile madhe navbar chi style */
     .navbar {
         padding: 0.6rem 1rem;
-        gap: 1rem; /* Icons ani button madhla gap kami karnyasathi */
-        width: 95%; /* Mobile var navbar la thodi jast space denyasathi */
+        gap: 1rem;
+        width: 95%; 
     }
 
-    /* Mobile madhe nav links cha style */
     .nav-links {
         display: flex;
         gap: 1rem;
         flex-wrap: nowrap; /* Icons ekach line var thevnyasathi */
         justify-content: center;
-        align-items: center; /* Icons vertically center madhe thevnyasathi */
+        align-items: center;
     }
 
-    /* Mobile madhe main container chi style */
     .main-container {
         flex-direction: column;
         padding-top: 100px;
         align-items: center;
     }
 
-    /* Mobile madhe sidebar chi style */
     .left-sidebar {
         position: relative;
         top: 0;
@@ -766,24 +750,20 @@ a.verify-btn:hover {
         max-width: 400px;
     }
 
-    /* Mobile madhe right content chi style */
     .right-content {
         gap: 5rem;
     }
 
-    /* Mobile madhe values grid chi style */
     .values-grid {
         gap: 2rem;
         flex-wrap: wrap;
     }
 
-    /* Mobile madhe about top row chi style */
     .about-top-row {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    /* Mobile madhe about text areas chi style */
     .about-headline,
     p.about-lead,
     .about-grey-text {
@@ -791,13 +771,11 @@ a.verify-btn:hover {
         grid-row: auto;
     }
 
-    /* Mobile madhe services grid chi style */
     .services-grid {
         grid-template-columns: 1fr;
         gap: 3.5rem;
     }
 
-    /* Mobile madhe services container chi style */
     .services-container {
         padding: 4rem 2rem;
     }
@@ -805,42 +783,37 @@ a.verify-btn:hover {
 
 /* Mobile screens sathi media query */
 @media (max-width: 768px) {
-    /* Nav text hide karnyasathi */
+    
     .nav-text {
         display: none;
     }
 
-    /* Nav icon dakhvnyasathi */
+    /*Made the nav icons visible*/
     .nav-icon {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-    /* Mobile var tapping sope vhave mhanun gap ani padding vadhvli */
+    
     .nav-links {
         gap: 1.5rem;
     }
 
-    /* Nav links a chi mobile style */
     .nav-links a {
         padding: 0.4rem;
     }
 
-    /* Hire button mobile var pan changla disava mhanun size adjust keli */
     button.hire-button {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
     }
 
-    /* Certificates grid chi mobile style */
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 1.5rem;
     }
-
-    /* Certificate cards chi mobile arrangement */
+    
     .cert-card,
     .horizontal-1,
     .horizontal-2,
@@ -850,7 +823,6 @@ a.verify-btn:hover {
         grid-row: auto;
     }
 
-    /* Certificate images chi mobile style */
     .horizontal-1 .cert-image-wrapper,
     .horizontal-2 .cert-image-wrapper,
     .vertical-tall .cert-image-wrapper {
@@ -860,50 +832,16 @@ a.verify-btn:hover {
         border-bottom: 1px solid #2e2a27;
     }
 
-    /* Vertical tall certificate chi mobile info style */
     .vertical-tall .cert-meta {
         align-items: center;
         margin-top: 0;
     }
 
-    /* Services title chi mobile size */
     .services-title {
         font-size: 2.5rem;
     }
 
-    /* Contact title chi mobile size */
     .contact-title {
         font-size: 2.5rem;
-    }
-}
-
-/* Small mobile screens sathi media query */
-@media (max-width: 480px) {
-    /* Name card chi small screen style */
-    .name-card {
-        width: 100%;
-        min-height: auto;
-        padding: 2rem 1.5rem;
-    }
-
-    /* Profile image chi small screen size */
-    .profile-image img {
-        width: 160px;
-        height: 160px;
-    }
-
-    /* value number chi small screen size */
-    .value-item .number {
-        font-size: 2.8rem;
-    }
-
-    /* Main title chi small screen size */
-    .main-title {
-        font-size: 2.5rem;
-    }
-
-    /* Contact title chi small screen size */
-    .contact-title {
-        font-size: 4rem;
     }
 }

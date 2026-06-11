@@ -4,8 +4,6 @@
     --web-color: #FF4A1C;
     --off-white: #fff6ee;
     --shadow-color: 0 10px 40px rgba(0, 0, 0, 0.6);
-
-    /* Hamburger Config Core Variables */
 }
 
 /* Saglya elements cha reset */
@@ -785,96 +783,29 @@ a.verify-btn:hover {
 
 /* Mobile screens sathi media query */
 @media (max-width: 768px) {
-
-    /* 1. Hamburger Wrapper turned into a Bubble */
-    .hamburger-menu {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 2000;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    /* Hide the checkbox completely */
-    .hamburger-menu input {
-        position: absolute;
-        opacity: 0;
-    }
-
-    /* Style the static SVG lines */
-    .hamburger-icon .line {
-        stroke: var(--off-white);
-        stroke-width: 6;
-        stroke-linecap: round;
-    }
-
-    /* 3. Navbar Overlay (Slides smoothly without changing the icon) */
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 280px;
-        border: none;
-        border-radius: 0px;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        background: rgba(21, 19, 18, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 4rem 2rem;
-        gap: 3rem;
-        box-shadow: var(--shadow-color);
-        transition : transform 0.3s ease-in-out;
-        transform: translateX(100%); 
-
-    }
-
-    /* Trigger Sidebar Slide only */
-    .nav-container:has(.hamburger-menu input:checked) .navbar {
-        transform: translateX(0%);
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-        width: 100%;
-    }
-
+    
     .nav-text {
-        display: inline-block;
-        font-size: 1.2rem;
+        display: none;
     }
 
+    /*Made the nav icons visible*/
     .nav-icon {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
 
     .nav-links a {
-        gap: 1rem;
-        width: 100%;
-        padding: 0.5rem 0;
-        font-size: 1.2rem;
+        padding: 0.4rem;
     }
 
     button.hire-button {
-        width: 100%;
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 
     .certs-asym-grid {
@@ -906,13 +837,11 @@ a.verify-btn:hover {
         margin-top: 0;
     }
 
-    .services-title, .contact-title {
+    .services-title {
         font-size: 2.5rem;
     }
-}
 
-@media (min-width: 769px) {
-    .hamburger-menu {
-        display: none !important;
+    .contact-title {
+        font-size: 2.5rem;
     }
 }

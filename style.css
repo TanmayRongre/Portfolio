@@ -1,12 +1,17 @@
-/* Main variables chi definition */
-:root {             
-    --bg: #151312;
+/* Linktree Theme Variables applied to Portfolio */
+:root {         
+    --bg-color: #0f0e0d;
+    --bg-gradient-top: #2a1f1c;
     --web-color: #FF4A1C;
+    --web-color-glow: rgba(255, 74, 28, 0.4);
     --off-white: #fff6ee;
-    --shadow-color: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --text-muted: #a19d9a;
+    --tile-bg: rgba(255, 255, 255, 0.04);
+    --tile-border: rgba(255, 255, 255, 0.08);
+    --shadow-color: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --hover-shadow: 0 15px 35px rgba(255, 74, 28, 0.15);
 }
 
-/* Saglya elements cha reset */
 *,
 *:before,
 *:after {
@@ -15,27 +20,27 @@
     padding: 0;
 }
 
-/* HTML ani Body sathi basic style */
-html,
-body {
+html {
     scroll-behavior: smooth !important;
     scroll-padding-top: 140px;
     width: 100%;
     max-width: 100vw;
     overflow-x: clip;
-    background: var(--bg);
-    color: white;
 }
 
-/* Main body chi style */
 body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 0%, var(--bg-gradient-top) 0%, var(--bg-color) 70%);
+    background-attachment: fixed; /* Keeps gradient in place on scroll */
+    color: var(--off-white);
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
-/* Navbar cha parent container */
+/* Glassmorphism Navbar */
 .nav-container {
     position: fixed;
     display: flex;
@@ -43,14 +48,14 @@ body {
     width: 100%;
     margin-top: 24px;
     padding: 0 1rem;
-    z-index: 1000; /* saglyat vr thevaysathi */
+    z-index: 1000;
 }
 
-/* Navbar cha main container */
 .navbar {
-    background: rgba(28, 25, 24, 0.6);
+    background-color: var(--tile-bg);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--tile-border);
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -61,23 +66,18 @@ body {
     box-shadow: var(--shadow-color);
 }
 
-/* Navbar cha links cha container */
 .nav-links {
     display: flex;
     gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;    /* Remove bullet points */
+    list-style: none;
 }
 
-/* Navbar che icons hide karnyasathi */
 .nav-icon {
     display: none;
 }
 
-/* Navbar cha links cha style */
 .nav-links a {
-    color: #e0e0e0;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -86,34 +86,32 @@ body {
     align-items: center;
 }
 
-/* Navbar cha links hover effect */
 .nav-links a:hover {
     color: var(--web-color);
     transform: translateY(-1px);
 }
 
-/* Navbar cha "Hire Me" button cha style */
 button.hire-button {
     font-family: 'Poppins', sans-serif;
     border: none;
     padding: 0.6rem 1.4rem;
     background: var(--web-color);
-    color: white;
+    color: var(--off-white);
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.9rem;
     white-space: nowrap;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    cursor: pointer; /* Hover kelyavar cursor change karnyasathi */
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
-/* "Hire Me" button cha hover effect */
 button.hire-button:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     background: #cd3104;
+    box-shadow: 0 5px 15px var(--web-color-glow);
 }
 
-/* Main content cha container */
+/* Layout */
 .main-container {
     display: flex;
     max-width: 1250px;
@@ -124,20 +122,20 @@ button.hire-button:hover {
     align-items: flex-start;
 }
 
-/* Left side chi profile sidebar */
 .left-sidebar {
     width: 380px;
     flex-shrink: 0;
-    position: sticky;       /*Stick to left*/
+    position: sticky;
     top: 120px;
-    z-index: 10;            /* avoid bugs */
+    z-index: 10;
 }
 
-/* Name Card */
+/* Linktree Style Name Card */
 .name-card {
-    background: var(--off-white);
-    border: 2px white solid;
-    color: var(--bg);
+    background-color: var(--tile-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--tile-border);
     border-radius: 25px;
     padding: 2.5rem 2rem;
     display: flex;
@@ -149,50 +147,51 @@ button.hire-button:hover {
     box-shadow: var(--shadow-color);
 }
 
-/* Image cha div */
 .profile-image {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
-/* Profile image chi style */
+/* Glow gradient profile image */
 .profile-image img {
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--web-color), #ff8c42);
+    box-shadow: 0 0 20px var(--web-color-glow);
     object-fit: cover;
+    background-color: var(--bg-color);
 }
 
-/* Name ani description cha div */
 .profile-info {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
     width: 100%;
-    margin: 1.5rem 0;
+    margin-bottom: 2rem;
 }
 
-/* Profile cha naav */
 .profile-info h1 {
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0;
-    line-height: 1.2;
+    color: var(--off-white);
+    letter-spacing: 0.5px;
 }
 
-/* Profile description */
 .profile-info p {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.95rem;
-    color: #4a4542;
+    color: var(--text-muted);
     margin: 0;
     line-height: 1.5;
 }
 
-/* Social media icons cha div */
 .social-links {
     display: flex;
     gap: 1.25rem;
@@ -201,27 +200,55 @@ button.hire-button:hover {
     width: 100%;
 }
 
-/* Social media icon parent */
-.social-icon {
+/* Custom Connect Hub Section in Sidebar */
+.custom-link-portal {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
-/* Social media 1 by 1 image */
-.social-img {
-    height: 28px;
-    width: 28px;
-    object-fit: contain;
-    transition: transform 0.2s ease;
+.portal-badge {
+    font-size: 0.75rem;
+    color: var(--web-color);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
 }
 
-/* Social media icon hover effect */
-.social-img:hover {
-    transform: scale(1.1);
+.portal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 74, 28, 0.1);
+    border: 1px solid var(--web-color);
+    border-radius: 16px;
+    color: var(--off-white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Right side cha main content */
+.portal-btn:hover {
+    background: var(--web-color);
+    box-shadow: 0 5px 20px var(--web-color-glow);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.portal-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
 .right-content {
     flex-grow: 1;
     display: flex;
@@ -229,7 +256,7 @@ button.hire-button:hover {
     gap: 8rem;
 }
 
-/* Purna head section cha css */
+/* Hero Section */
 .hero-section {
     width: 100%;
     display: flex;
@@ -237,64 +264,59 @@ button.hire-button:hover {
     align-items: center;
 }
 
-/* Name card cha right side cha content */
 .hero-content {
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
 }
 
-/* Hero section cha main headline */
 .main-title {
     font-size: clamp(2.5rem, 7vw, 5rem);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.02em;
     word-wrap: break-word;
+    color: var(--off-white);
 }
 
-/* Span "MERN", "ME", " . " sathi */
 .dimmed-text {
     color: var(--web-color);
+    text-shadow: 0 0 15px var(--web-color-glow);
 }
 
-/* Hero section cha description */
 .hero-description {
-    color: #9c9490;
+    color: var(--text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 540px;
     margin-top: 1.5rem;
 }
 
-/* Hero section cha 3 values cha layout */
 .values-grid {
     display: flex;
     gap: 4rem;
 }
 
-/* Ek value item cha parent */
 .value-item {
     display: flex;
     flex-direction: column;
 }
 
-/* value number */
 .value-item .number {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
+    color: var(--off-white);
 }
 
-/* value label */
 .value-item .label {
     font-size: 0.8rem;
-    color: #6e6661;
+    color: var(--text-muted);
     letter-spacing: 0.05em;
     margin-top: 0.5rem;
 }
 
-/* About section cha parent */
+/* About Section */
 .about-section {
     width: 100%;
     display: flex;
@@ -302,7 +324,6 @@ button.hire-button:hover {
     align-items: center;
 }
 
-/* About section cha layout parent */
 .about-layout-container {
     display: flex;
     flex-direction: column;
@@ -310,7 +331,6 @@ button.hire-button:hover {
     width: 100%;
 }
 
-/* About section cha top row cha layout */
 .about-top-row {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -319,25 +339,23 @@ button.hire-button:hover {
     width: 100%;
 }
 
-/* About section cha headline */
 .about-headline h2 {
     font-size: 3.6rem;
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.02em;
     margin: 0;
+    color: var(--off-white);
 }
 
-/* About right bold text */
 .about-lead {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.4;
-    color: #fff6ee;
+    color: var(--off-white);
     margin: 0;
 }
 
-/* About paragraph lead style */
 p.about-lead {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -345,13 +363,11 @@ p.about-lead {
     margin-bottom: 1.5rem;
 }
 
-/* About headline layout */
 .about-headline {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
 }
 
-/* About grey text spanning layout */
 .about-grey-text {
     display: flex;
     flex-direction: column;
@@ -361,21 +377,19 @@ p.about-lead {
     max-width: 100%;    
 }
 
-/* About right normal text */
 .about-text {
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.6;
-    color: #9c9490;
+    color: var(--text-muted);
     margin: 0;
 }
 
-/* About section cha certificates cha parent */
+/* Certificates */
 .about-certificates {
     width: 100%;
 }
 
-/* About section cha certificates cha headline */
 .about-certificates h3 {
     font-size: 1rem;
     font-weight: 700;
@@ -384,85 +398,64 @@ p.about-lead {
     margin: 0 0 1.5rem 0;
 }
 
-/* About section cha certificates cha layout */
 .certs-asym-grid {
     display: grid;
     gap: 1.5rem;
     width: 100%;
 }
 
-/* Ek certificate card cha parent */
+/* Certificate Glass Cards */
 .cert-card {
-    background: #1c1918;
-    border: 1px solid #2e2a27;
-    border-radius: 16px;
+    background-color: var(--tile-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--tile-border);
+    border-radius: 20px;
     display: flex;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    box-shadow: var(--shadow-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
 }
 
-/* Certificate card hover effect */
 .cert-card:hover {
-    transform: translateY(-4px);
-    border-color: #4a4542;
+    transform: translateY(-4px) scale(1.01);
+    border-color: var(--web-color);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--hover-shadow);
 }
 
-/* Certificate card 1 cha layout */
-.horizontal-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    flex-direction: row;
-}
+.horizontal-1 { grid-column: 1 / 2; grid-row: 1 / 2; flex-direction: row; }
+.horizontal-2 { grid-column: 1 / 2; grid-row: 2 / 3; flex-direction: row; }
+.vertical-tall { grid-column: 2 / 3; grid-row: 1 / 3; flex-direction: column; }
 
-/* Certificate card 2 cha layout */
-.horizontal-2 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    flex-direction: row;
-}
-
-/* Certificate card 3 cha layout */
-.vertical-tall {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    flex-direction: column;
-}
-
-/* Certificate card 1 and 2 cha image wrapper cha style */
 .horizontal-1 .cert-image-wrapper,
 .horizontal-2 .cert-image-wrapper {
-    
     width: 180px;
     height: 100%;
-    border-bottom: none;
 }
 
-/* Certificate card 3 cha image wrapper cha style */
 .vertical-tall .cert-image-wrapper {
     width: 100%;
     height: 180px;
 }
 
-/* Certificate card cha image wrapper cha common style */
 .cert-image-wrapper {
-    background: #151312;
+    background: transparent;
+    padding: 10px;
 }
 
-/* Certificate card cha image cha style */
 .cert-display-img {
-    border-radius: 16px;
-
+    border-radius: 12px;
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-/* Certificate card hover effect on image */
 .cert-card:hover .cert-display-img {
     transform: scale(1.03);
 }
 
-/* Certificate card cha info style */
 .cert-meta {
     padding: 1.25rem;
     display: flex;
@@ -472,55 +465,50 @@ p.about-lead {
     flex-grow: 1;
 }
 
-/* Certificate card 3 cha info style */
 .vertical-tall .cert-meta {
     margin-top: auto;
 }
 
-/* Certificate card cha text part cha style */
 .cert-details {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-/* Certificate name cha style */
 .cert-name {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #fff6ee;
+    color: var(--off-white);
     line-height: 1.3;
 }
 
-/* Certificate subtext cha style */
 .cert-sub {
     font-size: 0.8rem;
-    color: #9c9490;
+    color: var(--text-muted);
 }
 
-/* Certificate card cha "Verify" button cha style */
 a.verify-btn {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #fff6ee;
+    color: var(--off-white);
     background: transparent;
-    border: 1px solid #4a4542;
+    border: 1px solid var(--text-muted);
     padding: 0.4rem 1rem;
     border-radius: 100px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     flex-shrink: 0;
 }
 
-/* "Verify" button hover effect */
 a.verify-btn:hover {
     background: var(--web-color);
     border-color: var(--web-color);
-    color: white;
+    color: var(--off-white);
+    box-shadow: 0 0 10px var(--web-color-glow);
 }
 
-/* Services section cha parent */
+/* Services */
 .services-section {
     width: 100%;
     display: flex;
@@ -528,101 +516,107 @@ a.verify-btn:hover {
     align-items: center;
 }
 
-/* Services section cha outer border */
-.outer-border {
-    width: 100%;
-    border: 1px solid #2e2a27;
-    padding: 2px;
-    border-radius: 32px;
+/* Base style for large glass panels */
+.tile-panel {
+    background-color: var(--tile-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--tile-border);
+    border-radius: 30px;
     box-shadow: var(--shadow-color);
-    padding: 12px;
 }
 
-/* Services section cha main container */
 .services-container {
     width: 100%;
-    background: #1c1918;
-    border: 1px solid #2e2a27;
-    border-radius: 30px;
-    padding: 3rem 3rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Services section cha header cha parent */
 .services-header {
     text-align: center;
+    margin-bottom: 3rem;
 }
 
-/* Services section cha header cha subtext */
 .services-sub {
     font-size: 0.85rem;
     font-family: monospace;
-    color: #6e6661;
+    color: var(--text-muted);
     letter-spacing: 0.05em;
 }
 
-/* Services section cha header cha main title */
 .services-title {
     color: var(--web-color);
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: 0.05em;
     margin: 0.5rem 0 0 0;
+    text-shadow: 0 0 20px var(--web-color-glow);
 }
 
-/* Services section cha 3 service items cha layout */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
 }
 
-/* Ek service item cha parent */
+/* Service inner tiles */
+.glass-tile {
+    background-color: var(--tile-bg);
+    border: 1px solid var(--tile-border);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
 }
 
-/* Service item cha icon wrapper cha style */
+.service-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    border-color: var(--web-color);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--hover-shadow);
+}
+
 .service-icon-wrapper {
     margin-bottom: 1.5rem;
-    height: 45px;
-    width: 45px;
+    height: 55px;
+    width: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    padding: 10px;
 }
 
-/* Service item cha icon cha style */
 .service-icon {
-    height: 40px;
+    height: 35px;
     object-fit: contain;
 }
 
-/* Service item cha title cha style */
 .service-item h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff6ee;
+    color: var(--off-white);
     margin: 0 0 1rem 0;
 }
 
-/* Service item cha description cha style */
 .service-item p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #9c9490;
+    color: var(--text-muted);
     margin: 0;
-    max-width: 280px;
 }
 
-/* Contact section cha parent */
+/* Contact Section */
 .contact-section {
     width: 100%;
     display: flex;
@@ -630,40 +624,39 @@ a.verify-btn:hover {
     justify-content: center;
 }
 
-/* Contact section cha layout container */
 .contact-layout-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
 }
 
-/* Contact section cha main title */
 .contact-title {
     font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.1;
     display: flex;
     flex-direction: column;
+    color: var(--off-white);
 }
 
-/* Form cha wrapper container */
+.contact-form.p-4 {
+    padding: 2.5rem;
+}
+
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
-    max-width: 800px;
 }
 
-/* Form madhil input cha row */
 .input-row {
     display: flex;
     gap: 1.5rem;
     width: 100%;
 }
 
-/* Input fields cha group */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -671,38 +664,36 @@ a.verify-btn:hover {
     width: 100%;
 }
 
-/* Input field cha label */
 .input-group label {
     font-size: 0.85rem;
-    color: #9c9490;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
-/* Input ani textarea chi style */
 .input-group input,
 .input-group textarea {
     width: 100%;
-    background-color: #2e2a27;
-    border: 2px solid #2e2a27;
+    background-color: rgba(255,255,255,0.02);
+    border: 1px solid var(--tile-border);
     border-radius: 12px;
-    padding: 0.8rem 1rem;
-    color: #fff6ee;
+    padding: 1rem;
+    color: var(--off-white);
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-/* Input focus zalyavar border color change */
 .input-group input:focus,
 .input-group textarea:focus {
     border-color: var(--web-color);
+    background-color: rgba(255,255,255,0.06);
+    box-shadow: 0 0 15px var(--web-color-glow);
 }
 
-/* Submit button chi style */
 .submit-btn {
     background-color: var(--web-color);
-    color: white;
+    color: var(--off-white);
     border: none;
     border-radius: 12px;
     padding: 1.1rem;
@@ -710,18 +701,18 @@ a.verify-btn:hover {
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    margin-top: 0.5rem;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 1rem;
     width: 100%;
 }
 
-/* Submit button cha hover effect */
 .submit-btn:hover {
     background-color: #cd3104;
     transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--web-color-glow);
 }
 
-/* Tablet and medium screens sathi media query */
+/* Media Queries (Unchanged layout breakpoints, purely aesthetic merges) */
 @media (max-width: 968px) {
     .navbar {
         padding: 0.6rem 1rem;
@@ -730,9 +721,7 @@ a.verify-btn:hover {
     }
 
     .nav-links {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: nowrap; /* Icons ekach line var thevnyasathi */
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
     }
@@ -773,22 +762,19 @@ a.verify-btn:hover {
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
+        gap: 2rem;
     }
 
     .services-container {
-        padding: 4rem 2rem;
+        padding: 2.5rem 1.5rem;
     }
 }
 
-/* Mobile screens sathi media query */
 @media (max-width: 768px) {
-    
     .nav-text {
         display: none;
     }
 
-    /*Made the nav icons visible*/
     .nav-icon {
         display: flex;
         align-items: center;
@@ -828,8 +814,6 @@ a.verify-btn:hover {
     .vertical-tall .cert-image-wrapper {
         width: 100%;
         height: 180px;
-        border-right: none;
-        border-bottom: 1px solid #2e2a27;
     }
 
     .vertical-tall .cert-meta {
@@ -837,10 +821,12 @@ a.verify-btn:hover {
         margin-top: 0;
     }
 
-    .services-title {
-        font-size: 2.5rem;
+    .input-row {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
+    .services-title,
     .contact-title {
         font-size: 2.5rem;
     }

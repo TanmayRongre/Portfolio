@@ -231,7 +231,7 @@ button.hire-button:hover {
     color: var(--off-white);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease-out;
 }
 
 .portal-btn:hover {

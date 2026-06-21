@@ -21,6 +21,17 @@
     cursor: none;
 }
 
+/* Restore native cursor on touch / mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    *, *:before, *:after {
+        cursor: auto !important;
+    }
+    .cursor-dot,
+    .cursor-outline {
+        display: none !important;
+    }
+}
+
 html {
     scroll-behavior: smooth !important;
     scroll-padding-top: 140px;

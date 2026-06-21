@@ -18,6 +18,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: none;
 }
 
 html {
@@ -38,6 +39,46 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    cursor: none;
+}
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--off-white);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--text-muted);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cursor hover state — triggered on buttons, links, inputs */
+.cursor-dot.cursor-hover {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.cursor-outline.cursor-hover {
+    width: 55px;
+    height: 55px;
+    border-color: var(--web-color);
+    background-color: rgba(255, 74, 28, 0.12);
+    box-shadow: 0 0 18px var(--web-color-glow), inset 0 0 10px rgba(255,74,28,0.1);
+}
+
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 100000;
+    pointer-events: none;
 }
 
 .nav-container {
@@ -60,7 +101,6 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 0.8rem 0.6rem 1.5rem;
-    /* Updated left padding */
     gap: 2rem;
     width: 90%;
     box-shadow: var(--shadow-color);
@@ -129,7 +169,7 @@ button.hire-button {
     font-size: 0.9rem;
     white-space: nowrap;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+    cursor: none;
 }
 
 button.hire-button:hover {
@@ -731,7 +771,7 @@ a.verify-btn:hover {
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    cursor: pointer;
+    cursor: none;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     margin-top: 1rem;
     width: 100%;
@@ -799,14 +839,15 @@ a.verify-btn:hover {
         padding: 2.5rem 1.5rem;
     }
 }
+
 @media (max-width: 768px) {
     .nav-container {
         padding: 0 1rem;
     }
-    
+
     /* 1. Remove the glass trap from the parent and set it up for the pseudo-element */
     .navbar {
-        position: relative; 
+        position: relative;
         width: 100%;
         padding: 0.6rem 1rem;
         backdrop-filter: none;
@@ -815,7 +856,7 @@ a.verify-btn:hover {
         border: none;
         box-shadow: none;
     }
-    
+
     /* 2. Re-apply the top bar's glass effect here so it doesn't trap the links */
     .navbar::before {
         content: '';
@@ -834,11 +875,13 @@ a.verify-btn:hover {
     .nav-text {
         display: none;
     }
+
     .nav-icon {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .nav-icon svg {
         width: 24px;
         height: 24px;
@@ -855,7 +898,7 @@ a.verify-btn:hover {
         border: 1px solid var(--tile-border);
         border-radius: 100px;
         padding: 0.8rem 2rem;
-        gap: 2.5rem; 
+        gap: 2.5rem;
         width: max-content;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
         margin: 0;
@@ -866,20 +909,25 @@ a.verify-btn:hover {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
     }
-    
+
     .certs-asym-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 1.5rem;
     }
 
-    .cert-card, .horizontal-1, .horizontal-2, .vertical-tall {
+    .cert-card,
+    .horizontal-1,
+    .horizontal-2,
+    .vertical-tall {
         flex-direction: column;
         grid-column: auto;
         grid-row: auto;
     }
 
-    .horizontal-1 .cert-image-wrapper, .horizontal-2 .cert-image-wrapper, .vertical-tall .cert-image-wrapper {
+    .horizontal-1 .cert-image-wrapper,
+    .horizontal-2 .cert-image-wrapper,
+    .vertical-tall .cert-image-wrapper {
         width: 100%;
         height: 180px;
     }
@@ -894,7 +942,8 @@ a.verify-btn:hover {
         gap: 1.5rem;
     }
 
-    .services-title, .contact-title {
+    .services-title,
+    .contact-title {
         font-size: 2.5rem;
     }
 }

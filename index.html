@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
+    <div class="cursor-dot" id="data-cursor-dot"></div>
+    <div class="cursor-outline" id="data-cursor-outline"></div>
     <div class="nav-container">
         <nav class="navbar">
             <div class="nav-brand">
@@ -92,6 +92,19 @@
                         <span class="nav-text">Contact</span>
                     </a>
                 </li>
+                <li>
+                    <a href="https://tanmayrongre.github.io/Connect-hub" target="_blank" title="Connect Hub">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Connect Hub</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="nav-action">
@@ -105,34 +118,75 @@
     <div class="main-container" id="home">
 
         <div class="left-sidebar">
-            <div class="name-card">
-                <div class="profile-image">
-                    <img src="./icons/profile.png" alt="Tanmay Rongre">
+            <div class="name-card-wrapper" id="name-card-wrapper">
+                <!-- Lanyard strap -->
+                <div class="lanyard-strap">
+                    <div class="strap-weave"></div>
+                    <div class="strap-clip">
+                        <div class="clip-bar"></div>
+                        <div class="clip-hook"></div>
+                    </div>
                 </div>
 
-                <div class="profile-info">
-                    <h1>Tanmay Rongre</h1>
-                    <p>A Full Stack Engineer who has developed countless innovative solutions</p>
-                </div>
+                <div class="name-card" id="name-card">
+                    <!-- Top color band -->
+                    <div class="id-strip">
+                        <span class="id-strip-label">DEVELOPER ID</span>
+                        <div class="id-hole-container">
+                            <div class="id-hole"></div>
+                        </div>
+                    </div>
 
-                <div class="custom-link-portal">
-                    <p class="portal-badge">Personal Project</p>
-                    <a href="https://tanmayrongre.github.io/Connect-hub" target="_blank" class="portal-btn">
-                        <span>🔗 Connect Hub</span>
-                    </a>
-                    <p class="portal-desc">Explore my custom-built routing platform.</p>
-                </div>
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <!-- Company / org row -->
+                        <div class="card-org-row">
+                            <div class="org-logo-dot"></div>
+                            <span class="org-name">TR<span class="org-dot">.</span>DEV</span>
+                            <span class="card-year">2026</span>
+                        </div>
 
-                <div class="sidebar-socials">
-                    <a href="https://github.com/tanmayrongre" target="_blank" class="social-icon-btn" title="GitHub">
-                        <img src="./icons/github.png" alt="GitHub">
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn">
-                        <img src="./icons/linkedin.png" alt="LinkedIn">
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">
-                        <img src="./icons/instagram.png" alt="Instagram">
-                    </a>
+                        <div class="profile-image">
+                            <img src="./icons/profile.png" alt="Tanmay Rongre">
+                            <div class="profile-ring"></div>
+                        </div>
+
+                        <div class="profile-info">
+                            <h1>Tanmay Rongre</h1>
+                            <div class="role-badge">FULL STACK ENGINEER</div>
+                            <p>MERN · React · Node · MongoDB</p>
+                        </div>
+
+                        <!-- Info rows -->
+                        <div class="card-info-grid">
+                            <div class="card-info-item">
+                                <span class="info-label">DEPT</span>
+                                <span class="info-value">Web Engineering</span>
+                            </div>
+                            <div class="card-info-item">
+                                <span class="info-label">STATUS</span>
+                                <span class="info-value status-active"><span class="status-dot"></span>Available</span>
+                            </div>
+                        </div>
+
+                        <!-- Barcode -->
+                        <div class="id-barcode">
+                            <div class="barcode-lines"></div>
+                            <span class="barcode-num">TR-2026-MERN</span>
+                        </div>
+
+                        <div class="sidebar-socials">
+                            <a href="https://github.com/tanmayrongre" target="_blank" class="social-icon-btn" title="GitHub">
+                                <img src="./icons/github.png" alt="GitHub">
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn">
+                                <img src="./icons/linkedin.png" alt="LinkedIn">
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">
+                                <img src="./icons/instagram.png" alt="Instagram">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

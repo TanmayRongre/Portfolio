@@ -1,4 +1,4 @@
-/* Linktree Theme Variables applied to Portfolio */
+/* --- Theme Variables --- */
 :root {
     --bg-color: #0f0e0d;
     --bg-gradient-top: #2a1f1c;
@@ -21,7 +21,7 @@
     cursor: none;
 }
 
-/* Restore native cursor on touch / mobile devices */
+/* --- Mobile Cursor Reset --- */
 @media (hover: none) and (pointer: coarse) {
     *, *:before, *:after {
         cursor: auto !important;
@@ -67,7 +67,7 @@ body {
     transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Cursor hover state — triggered on buttons, links, inputs */
+/* --- Cursor Hover State --- */
 .cursor-dot.cursor-hover {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
@@ -200,71 +200,420 @@ button.hire-button:hover {
 }
 
 .left-sidebar {
-    width: 380px;
+    width: 340px;
     flex-shrink: 0;
     position: sticky;
-    top: 120px;
+    top: 110px;
+    max-height: calc(100vh - 130px);
+    overflow: visible;
     z-index: 10;
 }
 
-.name-card {
-    background-color: var(--tile-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--tile-border);
-    border-radius: 25px;
-    padding: 2.5rem 2rem;
+/* --- ID Card: Lanyard & Physics --- */
+.name-card-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 70px; /* space above card for strap */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 550px;
-    box-shadow: var(--shadow-color);
 }
 
+/* --- Lanyard Strap --- */
+.lanyard-strap {
+    position: absolute;
+    top: -60px;       /* bridge up to navbar bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 140px;    /* 42px above sidebar + 90px to card + 8px clip */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;     /* just below navbar (z-index:1000) — tucks behind it */
+    pointer-events: none;
+}
+
+/* Woven fabric texture of strap */
+.strap-weave {
+    flex: 1;
+    width: 100%;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,74,28,0.85) 0px,
+            rgba(255,74,28,0.85) 4px,
+            rgba(200,30,0,0.9)  4px,
+            rgba(200,30,0,0.9)  8px
+        ),
+        repeating-linear-gradient(
+            180deg,
+            rgba(255,255,255,0.06) 0px,
+            rgba(255,255,255,0.06) 3px,
+            transparent 3px,
+            transparent 6px
+        );
+    background-blend-mode: overlay;
+    border-radius: 4px 4px 0 0;
+    box-shadow: inset 1px 0 2px rgba(0,0,0,0.4), inset -1px 0 2px rgba(0,0,0,0.4);
+    /* fade the top edge so it dissolves into the navbar */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 28%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 28%);
+}
+
+/* Metallic clip that attaches strap to card */
+.strap-clip {
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clip-bar {
+    width: 36px;
+    height: 8px;
+    background: linear-gradient(180deg, #d0d0d0 0%, #888 40%, #c0c0c0 60%, #666 100%);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.clip-hook {
+    width: 28px;
+    height: 16px;
+    background: linear-gradient(180deg, #aaa 0%, #777 50%, #999 100%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* --- Main Card --- */
+.name-card {
+    background: linear-gradient(160deg,
+        rgba(30, 22, 20, 0.96) 0%,
+        rgba(18, 14, 12, 0.98) 60%,
+        rgba(24, 17, 14, 0.97) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 74, 28, 0.25);
+    border-radius: 24px;
+    width: 100%;
+    box-shadow:
+        0 24px 60px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 1px 0 rgba(255,255,255,0.08) inset;
+    position: relative;
+    /* pivot at the clip hole at the top center */
+    transform-origin: 50% 0px;
+    will-change: transform;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    z-index: 2;
+    /* smooth idle float — NO abrupt toggling */
+    animation: floatSwing 7s ease-in-out infinite;
+    transition: box-shadow 0.4s ease;
+}
+
+/* Subtle inner light gradient */
+.name-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(255, 74, 28, 0.07) 0%,
+        transparent 65%
+    );
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+/* Smooth idle float */
+@keyframes floatSwing {
+    0%   { transform: perspective(1200px) rotateX(1.5deg)  rotateY(1deg); }
+    25%  { transform: perspective(1200px) rotateX(-0.5deg) rotateY(-1.5deg); }
+    50%  { transform: perspective(1200px) rotateX(-1.5deg) rotateY(0.5deg); }
+    75%  { transform: perspective(1200px) rotateX(0.5deg)  rotateY(1.5deg); }
+    100% { transform: perspective(1200px) rotateX(1.5deg)  rotateY(1deg); }
+}
+
+/* --- Card Top Band --- */
+.id-strip {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    background: linear-gradient(135deg, #FF4A1C 0%, #d93b10 50%, #FF6B3D 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.id-strip::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.04) 0px,
+        rgba(255,255,255,0.04) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+    pointer-events: none;
+}
+
+.id-strip-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.id-hole-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.id-hole {
+    width: 52px;
+    height: 12px;
+    background: rgba(10, 8, 7, 0.85);
+    border-radius: 8px;
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,0.9),
+        0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* --- Card Body Layout --- */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.85rem 1.25rem 1.1rem;
+    gap: 0.65rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Organisation Header Row --- */
+.card-org-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.org-logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--web-color);
+    box-shadow: 0 0 8px var(--web-color-glow);
+    flex-shrink: 0;
+}
+
+.org-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--off-white);
+    flex: 1;
+}
+
+.org-dot {
+    color: var(--web-color);
+}
+
+.card-year {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+}
+
+/* --- Profile Photo --- */
 .profile-image {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .profile-image img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(135deg, var(--web-color), #ff8c42);
-    box-shadow: 0 0 20px var(--web-color-glow);
+    width: 110px;
+    height: 110px;
+    border-radius: 14px;
     object-fit: cover;
-    background-color: var(--bg-color);
+    display: block;
+    position: relative;
+    z-index: 1;
+    /* two-tone border using box-shadow */
+    box-shadow:
+        0 0 0 3px var(--web-color),
+        0 0 0 5px rgba(255,74,28,0.25),
+        0 8px 24px rgba(0,0,0,0.6),
+        0 0 18px var(--web-color-glow);
 }
 
+.profile-ring {
+    display: none; /* handled by box-shadow above */
+}
+
+/* --- Profile Info --- */
 .profile-info {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.25rem;
     text-align: center;
     width: 100%;
-    margin-bottom: 1rem;
 }
 
 .profile-info h1 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 0;
     color: var(--off-white);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+}
+
+.role-badge {
+    display: inline-block;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bg-color);
+    background: linear-gradient(90deg, var(--web-color), #ff7a45);
+    padding: 0.25rem 0.85rem;
+    border-radius: 50px;
+    box-shadow: 0 0 12px var(--web-color-glow);
 }
 
 .profile-info p {
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin: 0;
     line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* --- Info Grid (Dept/Status) --- */
+.card-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0.5rem 0;
+}
+
+.card-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.info-label {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--off-white);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.status-active {
+    color: #4ade80;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80;
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 4px #4ade80; }
+    50%       { box-shadow: 0 0 10px #4ade80, 0 0 20px rgba(74,222,128,0.4); }
+}
+
+/* --- Barcode --- */
+.id-barcode {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.barcode-lines {
+    width: 100%;
+    height: 26px;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            var(--off-white) 0px,    var(--off-white) 2px,
+            transparent    2px,    transparent    3px,
+            var(--off-white) 3px,    var(--off-white) 5px,
+            transparent    5px,    transparent    9px,
+            var(--off-white) 9px,    var(--off-white) 10px,
+            transparent   10px,   transparent   12px,
+            var(--off-white) 12px, var(--off-white) 14px,
+            transparent   14px,   transparent   17px,
+            var(--off-white) 17px, var(--off-white) 18px,
+            transparent   18px,   transparent   21px,
+            var(--off-white) 21px, var(--off-white) 24px,
+            transparent   24px,   transparent   26px,
+            var(--off-white) 26px, var(--off-white) 27px,
+            transparent   27px,   transparent   30px,
+            var(--off-white) 30px, var(--off-white) 33px,
+            transparent   33px,   transparent   35px,
+            var(--off-white) 35px, var(--off-white) 36px,
+            transparent   36px,   transparent   40px,
+            var(--off-white) 40px, var(--off-white) 42px,
+            transparent   42px,   transparent   45px,
+            var(--off-white) 45px, var(--off-white) 48px,
+            transparent   48px,   transparent   50px,
+            var(--off-white) 50px, var(--off-white) 51px,
+            transparent   51px,   transparent   55px,
+            var(--off-white) 55px, var(--off-white) 57px,
+            transparent   57px,   transparent   60px
+        );
+    opacity: 0.15;
+    border-radius: 2px;
+}
+
+.barcode-num {
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
 }
 
 .social-links {
@@ -644,7 +993,7 @@ a.verify-btn:hover {
     width: 100%;
 }
 
-/* Service inner tiles */
+/* --- Service Inner Tiles --- */
 .glass-tile {
     background-color: var(--tile-bg);
     border: 1px solid var(--tile-border);
@@ -698,7 +1047,7 @@ a.verify-btn:hover {
     margin: 0;
 }
 
-/* Contact Section */
+/* --- Contact Section --- */
 .contact-section {
     width: 100%;
     display: flex;
@@ -959,29 +1308,27 @@ a.verify-btn:hover {
     }
 }
 
-/* =====================================================
-   SIDEBAR SOCIAL ICONS
-   ===================================================== */
+/* --- Sidebar Social Icons --- */
 .sidebar-socials {
     display: flex;
-    gap: 0.85rem;
+    gap: 0.75rem;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
     border-top: 1px solid var(--tile-border);
 }
 
 .social-icon-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(211, 211, 211, 0.535);
     border: 1px solid var(--off-white);
-    border-radius: 12px;
+    border-radius: 10px;
     transition: all 0.25s ease;
     overflow: hidden;
 }
@@ -1006,23 +1353,19 @@ a.verify-btn:hover {
     transform: scale(1.1);
 }
 
-/* =====================================================
-   SCROLL REVEAL
-   ===================================================== */
+/* --- Scroll Reveal --- */
 .reveal-up {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal-up.in-view {
+.in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* =====================================================
-   PROJECTS SECTION
-   ===================================================== */
+/* --- Projects Section --- */
 .projects-section {
     width: 100%;
     display: flex;
@@ -1060,7 +1403,7 @@ a.verify-btn:hover {
     gap: 1.25rem;
 }
 
-/* ---- Base card ---- */
+/* --- Base Card --- */
 .project-card {
     position: relative;
     background-color: var(--tile-bg);
@@ -1080,7 +1423,7 @@ a.verify-btn:hover {
     box-shadow: var(--hover-shadow);
 }
 
-/* ---- Featured card spans full row ---- */
+/* --- Featured Card --- */
 .project-featured {
     grid-column: 1 / -1;
 }
@@ -1102,7 +1445,7 @@ a.verify-btn:hover {
     opacity: 1.5;
 }
 
-/* ---- Inner content ---- */
+/* --- Inner Content --- */
 .project-card-inner {
     padding: 1.75rem;
     display: flex;
@@ -1201,9 +1544,7 @@ a.verify-btn:hover {
     box-shadow: 0 0 16px var(--web-color-glow);
 }
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
+/* --- Footer --- */
 .site-footer {
     width: 100%;
     margin-top: 4rem;
@@ -1250,9 +1591,7 @@ a.verify-btn:hover {
     color: var(--web-color);
 }
 
-/* =====================================================
-   ENHANCED MICRO-INTERACTIONS
-   ===================================================== */
+/* --- Enhanced Micro-Interactions --- */
 
 
 

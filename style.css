@@ -1258,7 +1258,7 @@ a.verify-btn:hover {
         border: 1px solid var(--tile-border);
         border-radius: 100px;
         padding: 0.8rem 2rem;
-        gap: 2.5rem;
+        gap: 1.5rem;
         width: max-content;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
         margin: 0;
